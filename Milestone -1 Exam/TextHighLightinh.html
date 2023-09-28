@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Highlighting</title>
+</head>
+<body>
+    <p id="paragraph">
+        This is a sample paragraph with some words that are longer than eight characters. JavaScript can help us highlight those words.
+    </p>
+
+    <script>
+        // Get the paragraph element by its ID
+        const paragraph = document.getElementById("paragraph");
+
+        // Split the paragraph text into words
+        const words = paragraph.textContent.split(" ");
+
+        // Loop through the words and highlight those with more than 8 characters
+        for (const word of words) {
+            if (word.length > 8) {
+                const span = document.createElement("span");
+                span.textContent = word + " ";
+                span.style.backgroundColor = "yellow";
+                paragraph.appendChild(span);
+            } else {
+                paragraph.innerHTML += word + " ";
+            }
+        }
+    </script>
+</body>
+</html>

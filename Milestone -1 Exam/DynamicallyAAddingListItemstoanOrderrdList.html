@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Dynamically Adding List Items to an Ordered List</title>
+</head>
+<body>
+    <div id="learnSection">
+        <h2>What you'll learn</h2>
+        <ol id="learnList">
+            <!-- Existing list items here -->
+        </ol>
+        <button id="addItemButton">Add Item</button>
+    </div>
+    
+    <!-- Javascript code -->
+    <script>
+        const itemList = [
+            "HTML and Semantics",
+            " Starting with CSS",
+            " Working Template",
+            "Mobile responsive webpages",
+            "Grid and Flex-box in CSS",
+            "Projects using HTML & CSS",
+            "Version Control and Git",
+            "Getting Started with JavaScript",
+            "Advance JavaScript",
+            "Working with DOM",
+        ];
+    
+        const learnList = document.getElementById("learnList");
+        const addItemButton = document.getElementById("addItemButton");
+    
+        let currentItemIndex = 0;
+    
+        function addNextItem() {
+            if (currentItemIndex < itemList.length) {
+                const newItem = document.createElement("li");
+                newItem.textContent = itemList[currentItemIndex];
+                learnList.appendChild(newItem);
+                currentItemIndex++;
+            } else {
+                alert("All items have been added.");
+            }
+        }
+    
+        addItemButton.addEventListener("click", addNextItem);
+    </script>
+    
+</body>
+</html>

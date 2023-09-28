@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Move Image with Arrow Keys</title>
+    <style>
+        /* CSS to style the image */
+        #movable-image {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: red; /* You can replace this with an actual image */
+        }
+    </style>
+</head>
+<body>
+    <!-- The image element -->
+    <div id="movable-image"></div>
+
+    <script>
+        // Get a reference to the image element
+        const image = document.getElementById("movable-image");
+
+        // Initialize the image position
+        let posX = 0;
+        let posY = 0;
+
+        // Function to move the image
+        function moveImage(keyCode) {
+            const step = 10; // Adjust the step size as needed
+
+            switch (keyCode) {
+                case 37: // Left arrow key
+                    posX -= step;
+                    break;
+                case 38: // Up arrow key
+                    posY -= step;
+                    break;
+                case 39: // Right arrow key
+                    posX += step;
+                    break;
+                case 40: // Down arrow key
+                    posY += step;
+                    break;
+                default:
+                    return; // Exit the function for other keys
+            }
+
+            // Update the image position
+            image.style.left = posX + "px";
+            image.style.top = posY + "px";
+        }
+
+        // Event listener for arrow key presses
+        document.addEventListener("keydown", (event) => {
+            moveImage(event.keyCode);
+        });
+    </script>
+</body>
+</html>
